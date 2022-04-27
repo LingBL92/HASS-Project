@@ -18,6 +18,8 @@
     }
 
     article {
+      font-family: 'DM Sans';
+      font-size: 22px;
       position: relative;
       padding: 0 1.2rem;
       max-width:25rem;
@@ -28,7 +30,7 @@
       font-size: 80px;
       text-align: center;
       padding-top:300px;
-      padding-bottom:300px;
+      padding-bottom:400px;
     }
 
     h1 span{
@@ -52,7 +54,7 @@
 
     .bgImg {
         filter: none;
-        opacity: 1;
+        opacity: 0;
         position: fixed;
         top: 0;
         bottom: 0;
@@ -67,7 +69,8 @@
   </style>
 
   <head>
-    <title> Improvement of net zero carbon examples </title>
+    <title> Building Performance Simulation </title>
+    <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.js"></script>
   </head>
@@ -75,12 +78,16 @@
   <body>
     <main>
     <div>// id='bgwrapper'>
-      <img class='bgImg' id='bg3' src='NE_Summer.png'>
-      <img class='bgImg' id='bg2' src='NE_Radiation.png'>
-      <img class='bgImg' id='bg1' src='NE_Cover.png'>
+      <img class='bgImg' id='bg3' src='NE_Radiation.png'>
+      <img class='bgImg' id='bg2' src='NE_Cover.png'>
+      <img style='opacity:1' class='bgImg' id='bg1' src='NE_Sketch.png'>
+
+      <img class='bgImg' id='line3' src='podium_outline.png'>
+      <img class='bgImg' id='line2' src='residential_outline.png'>
+      <img class='bgImg' id='line1' src='office_outline.png'>
     </div>
 
-    <h1><span> Building Performance Simulation</span></h1>
+    <h1  style='font-family: DM Sans;'><span> Building Performance Simulation</span></h1>
     <section id="scrolly">
       <article>
         <div class='article'>
@@ -109,7 +116,7 @@
             </p>
         </div>
 
-        <IFRAME style='top:100px; left: 200px;' class='htmlpos' SRC="Data_Breakdown_office.html" FRAMEBORDER="yes" BORDER="0" SCROLLING="no" ID="estframe"></IFRAME>
+        <IFRAME style='top:0px; left: 0px; -webkit-transform: scale(0.85);' class='htmlpos' SRC="Data_Breakdown_office.html" FRAMEBORDER="yes" BORDER="0" SCROLLING="no" ID="estframe"></IFRAME>
 
         <div>
             <p>In March 2020, COVID-19 brought the world of sports to a standstill, as most major events were cancelled or postponed across the globe. The NBA season was suspended; Tokyo 2020 became 2021; Wimbledon was scrapped. Even professional chess wasn't spared, ironically: the Candidates Tournament, an 8-player round robin to determine the next challenger for the World Championship against Magnus Carlsen, was postponed after 7 rounds.<br><br>
@@ -121,9 +128,9 @@
         </div>
 
         <div>
-          <img style='height:250px;margin-left:50px;' id='pie1' src='Rad_Pie_Office_Outline.png' title='Office'>
-          <img style='height:250px;margin-left:50px;' id='pie2' src='Rad_Pie_Residential_Outline.png' title='Residential'>
-          <img style='height:250px;margin-left:50px;' id='pie3' src='Rad_Pie_Podium_Outline.png' title='Podium'>
+          <img style='height:250px;margin-left:100px;' id='pie1' src='Rad_Pie_Office_Outline.png' title='Office'>
+          <img style='height:250px;margin-left:100px;' id='pie2' src='Rad_Pie_Residential_Outline.png' title='Residential'>
+          <img style='height:250px;margin-left:100px;' id='pie3' src='Rad_Pie_Podium_Outline.png' title='Podium'>
         </div>
 
         <div>
@@ -169,36 +176,31 @@
     var img = document.getElementById(imgID)
     if (window.scrollY > top && window.scrollY < bottom) {
       img.style.opacity= (window.scrollY-top)/(bottom-top)}
-    if (window.scrollY > bottom || window.scrollY < top) { img.style.opacity=1}
+    if (window.scrollY > bottom) { img.style.opacity=1}
     }
 
-  function mouseIn(imgID) {
+  function mouseIn(imgID,targetID) {
     var img = document.getElementById(imgID);
+    var targ = document.getElementById(targetID);
     img.addEventListener('mouseenter',function(event){
       img.title=img.title;
-
-      var targ = document.getElementById('bg2');
-      targ.style.opacity=0.5;
+      targ.style.opacity=1;
     })
 
     img.addEventListener('mouseleave',function(event){
-      var target = document.getElementById('bg2');
-      target.style.opacity=1;
+      targ.style.opacity=0;
     })
   }
 
   window.onscroll = function (e) {
-    //console.log(window.scrollY);
-    //var img1 = document.getElementById('bg1')
-    //if (window.scrollY > 300 && window.scrollY < 400) {
-    //  img1.style.opacity= 1-(window.scrollY-300)/100 }
-    //if (window.scrollY > 400) { img1.style.opacity=0}
-    //}
-    scrollOp(0,2800,'bg1')
-    fadeIn(2600,2800,'bg2')
-    //scrollOp(1800,3600,'bg2')
+    scrollOp(0,800,'bg1')
+    fadeIn(500,800,'bg2')
+    scrollOp(700,1800,'bg2')
+    fadeIn(1600,2800,'bg3')
 
-    mouseIn('pie1')
+    mouseIn('pie1','line1')
+    mouseIn('pie2','line2')
+    mouseIn('pie3','line3')
   }
 
 
