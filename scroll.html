@@ -1,137 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0083)http://fofwebdesign.co.uk/template/_testing/scroll-in-view/img-switch-on-scroll.htm -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-<meta name="description" lang="en" content="Add a class to an element when it scrolls to an arbitrary distance from the top of the viewport. Before and after image switch effect.">
-<title>Image Switch On-Scroll Demo</title>
-<!-- http://blog.fofwebdesign.co.uk/41-add-classes-to-an-element-when-scrolled-into-viewport -->
 
 <style>
-html, body { margin:0; padding:0; font:1em/1.75 Verdana, Arial, Helvetica, sans-serif; -ms-text-size-adjust:100%; -webkit-text-size-adjust:100% }
-#header { position:relative; top:0; left:0; right:0; height:4.0625em; background:#222 }
-#header img { position:absolute; top:0.5em; left:1em; width:3em; height:3em; border:0 }
-#header > span { position:absolute; top:1.175em; left:5em; color:#fff }
-#header span + a { position:absolute; top:0.65em; right:0.5em; color:#fff; text-decoration:none }
-#header a span { font-size:1.5em }
-.page-content { padding:0 1em 1em; max-width:64em; margin:auto }
-.breadcrumbs { font-size:.75em; border-bottom:7px solid #eee; margin:0 -1.25em 1.5em; padding:1em 1.25em }
-.breadcrumbs span { display:none }
-@media(min-width:30em) { .breadcrumbs { line-height:3.75; padding:0 1.25em } }
-@media(min-width:60em) { .breadcrumbs span { display:inline-block } }
-a, a:active, a:visited { color:#c30 }
-a:visited { color:#c90 }
-a:hover, a:focus { color:#666; text-decoration:none }
-code { display:block; background:#ebebeb; font-size:0.875em; padding:1em 2em; overflow-x:scroll; white-space:nowrap }
-blockquote { font-style:italic; margin:0 5% }
-
-
-.demo { margin-bottom:10em }
-.img-wrap { position:relative; margin:10em 0; overflow:hidden }
-.img-wrap img { max-width:100% }
-.img-wrap .after { position:absolute; left:0; opacity:0; transition:opacity 2s }
-.img-wrap.element-from-top .after { opacity:1 } /* '.element-from-top' class added via js elementFromTop() function */
-#two.img-wrap.element-from-top .after { transition:none; -webkit-animation:sweepUp 5s both; animation:sweepUp 5s both } /* '.element-from-top' class added via js elementFromTop() function */
-#three.img-wrap.element-from-top .after { transition:none; -webkit-animation:sweepDown 5s both; animation:sweepDown 5s both } /* '.element-from-top' class added via js elementFromTop() function */
-
-@-webkit-keyframes sweepUp {
-	0% { -webkit-transform:translate3d(0,100%,0) }
-	15%, 80% { -webkit-transform:none }
-	100% { -webkit-transform:translate3d(0,-200%,0) }
-	}
-@keyframes sweepUp {
-	0% { transform:translate3d(0,100%,0) }
-	15%, 80% { transform:none }
-	100% { transform:translate3d(0,-200%,0) }
-	}
-@-webkit-keyframes sweepDown {
-	0% { -webkit-transform:translate3d(0,-100%,0) }
-	15%, 80% { -webkit-transform:none }
-	100% { -webkit-transform:translate3d(0,200%,0) }
-	}
-@keyframes sweepDown {
-	0% { transform:translate3d(0,-100%,0) }
-	15%, 80% { transform:none }
-	100% { transform:translate3d(0,200%,0) }
-	}
 </style>
 
+<head>
+	<title> Building Performance Simulation </title>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
-
-<div id="header">
-	<a href="http://fofwebdesign.co.uk/"><img src="./Image Switch On-Scroll Demo_files/logo-50x50.png" alt="Home" title="Home"></a>
-	<span>Focus on Function</span>
-	<a href="http://blog.fofwebdesign.co.uk/41-add-classes-to-an-element-when-scrolled-into-viewport" title="Back to Article">Article <span>→</span></a>
-</div><!-- closing "#header" -->
-
-<div class="page-content">
-<p class="breadcrumbs"><span>You are here:</span> <a href="http://fofwebdesign.co.uk/">Home</a> / <a href="http://fofwebdesign.co.uk/freebies-for-websites.php">Freebies For Websites</a> / <a href="http://fofwebdesign.co.uk/freebies-for-websites/demos-and-snippets.php">Demos &amp; Snippets</a></p>
-
-
-<h2>Image Switch On-Scroll Demo</h2>
-<p>This is related to the very <a href="http://fofwebdesign.co.uk/template/_testing/scroll-in-view/add-class-to-element-when-in-view-basic.htm">basic demo</a> that adds a class to an element when it scrolls to an arbitrary distance from the top of the viewport.</p>
-<p>Here, the addition of a class reveals a hidden image, that is positioned over another image, to create a before and after image switch effect.</p>
-<p>Works in modern browsers and IE9+</p>
-<p>Please view the source of this page for HTML markup, CSS and JS.</p>
-
-
-<div class="demo">
-<h2>Scroll Down...</h2>
-<p>The images below change...</p>
-	<div id="one" class="img-wrap">
-		<img class="before" src="NE_Summer.png">
-		<img class="after" src="NE_Winter.png">
-	</div>
-	<p>Some text blurb...</p>
-
-	<div id="two" class="img-wrap">
-    <img class="before" src="NE_Summer.png">
-		<img class="after" src="NE_Winter.png">
-	</div>
-	<p>Some text blurb...</p>
-	<div id="three" class="img-wrap">
-    <img class="before" src="NE_Summer.png">
-		<img class="after" src="NE_Winter.png">
-	</div>
-	<p>Some text blurb...</p>
-</div>
-
-
-<script async="" src="./Image Switch On-Scroll Demo_files/ga.php"></script><script>
-(function(){
-	function hasClass(el, cls) {
-		if (el.className.match('(?:^|\\s)'+cls+'(?!\\S)')) { return true; }
-		}
-	function addClass(el, cls) {
-		if (!el.className.match('(?:^|\\s)'+cls+'(?!\\S)')){ el.className += ' '+cls; }
-		}
-	function delClass(el, cls) {
-		el.className = el.className.replace(new RegExp('(?:^|\\s)'+cls+'(?!\\S)'),'');
-		}
-
-	function elementFromTop(elem, classToAdd, distanceFromTop, unit) {
-		var winY = window.innerHeight || document.documentElement.clientHeight,
-		    distTop = elem.getBoundingClientRect().top,
-		    distPercent = Math.round((distTop / winY) * 100),
-		    distPixels = Math.round(distTop),
-		    distUnit;
-		distUnit = unit == 'percent' ? distPercent : distPixels;
-		if (distUnit <= distanceFromTop) {
-			if (!hasClass(elem, classToAdd)) { addClass(elem, classToAdd); }
-			} else {
-			delClass(elem, classToAdd);
-			}
-		}
-	// params: element id, class to add, distance from top, unit ('percent' or 'pixels')
-
-	window.addEventListener('scroll', function() {
-		elementFromTop(document.getElementById('one'), 'element-from-top', 200, 'pixels');
-		}, false);
-	window.addEventListener('scroll', function() {
-		elementFromTop(document.getElementById('two'), 'element-from-top', 300, 'pixels');
-		}, false);
-	window.addEventListener('scroll', function() {
-		elementFromTop(document.getElementById('three'), 'element-from-top', 400, 'pixels');
-		}, false);
-})();
-</script>
+	<div class='row'>
+		<div
