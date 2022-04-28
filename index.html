@@ -62,8 +62,7 @@
         left: 0;
         margin: auto;
         width: 100%;
-        float: "right";
-        height: auto;
+
     }
 
   </style>
@@ -78,6 +77,8 @@
   <body>
     <main>
     <div>// id='bgwrapper'>
+      <img class='bgImg' style='width:50%; padding-left:500px;' id='bg6' src='pattern-letterA.png'>
+      <img class='bgImg' style='width:70%; padding-left:470px;' id='bg5' src='E.png'>
       <img class='bgImg' id='bg4' src='NE_Summer.png'>
       <img class='bgImg' id='bg3' src='NE_Radiation.png'>
       <img class='bgImg' id='bg2' src='NE_Cover.png'>
@@ -184,6 +185,31 @@
             Over time, the intention was to collect representative simulation data so that future projects have a reference point.
             </p>
         </div>
+
+        <IFRAME style='background: rgba(255,255,255,0.85); height: 700px; top:0px; left: 0px; -webkit-transform: scale(0.85);' class='htmlpos' SRC="html_files/method3.html" FRAMEBORDER="yes" BORDER="0" SCROLLING="no" ID="estframe"></IFRAME>
+
+        <div>
+          <h3>Visualising wind simulation results</h3>
+            <p>The biggest difference between wind and solar simulations is that wind results are mapped onto the space around the model.<br><br>
+
+            Common methods of visualising wind includes cutting slices through the air space and selecting key perspectives. However, there are missed opportunities when using a 2D visualisation as the impact of buildings on the wind flow usually happens in 3D.<br><br>
+            </p>
+          <h3>Future work</h3>
+            <p>This is an ongoing interest of mine and I'm finding different ways to present the wind flow more effectively.<br><br>
+            One way is to allow architects to pan and zoom on screen. Another is to present results in augmented reality.</p>
+        </div>
+
+        <IFRAME style='top:0px; left: 0px; -webkit-transform: scale(0.85);' class='htmlpos' SRC="html_files/wind slices.html" FRAMEBORDER="yes" BORDER="0" SCROLLING="no" ID="estframe"></IFRAME>
+
+        <div>
+          <h3>AR on the web</h3>
+            <img style='height:300px;margin-left:80px;margin-top:80px;margin-bottom:50px;' id='qr' src='QR.png' title='Scan QR code'>
+            <p>Scan the above QR code to go to the webpage, then allow access to camera.<br><br>
+            Point your camera at the letter A marker to visualise the wind flow results (hopefully).<br><br>
+            I selected a few data types in building simulations. Data mapped to geometry, data related to time and data in 3D space. Computer simulations offer an opportunity to quantify certain aspects of architectural design and use these information to guide future design decisions. Creating visualisations is one way to convey information, in this case, making explicit certain findings to another party.</p>
+
+        </div>
+
       </article>
     </section>
     </main>
@@ -228,6 +254,12 @@
 
     scrollOp(8500,9100,'bg3')
     fadeIn(8800,9500,'bg4')
+
+    scrollOp(12000,12600,'bg4')
+    fadeIn(12300,13100,'bg5')
+
+    scrollOp(14000,14600,'bg5')
+    fadeIn(14300,15100,'bg6')
 
     mouseIn('pie1','line1')
     mouseIn('pie2','line2')

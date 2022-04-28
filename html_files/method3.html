@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+
+h1 {
+	position: relative;
+	font-size: 30px;
+	text-align: center;
+}
+
+.container {
+  position: relative;
+  width: 33.33%;
+  overflow:hidden;
+  display: table-cell;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.caption {
+  position: relative;
+	float: left;
+  width: 33.33%;
+  overflow:hidden;
+	text-align: center;
+	font-family: 'DM Sans';
+	font-size: 22px;
+}
+
+.image {
+  display: table-cell;
+  width: 100%;
+  height: auto;
+
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(50,50,50,0.9);
+  color: white;
+  text-align:center;
+	vertical-align: middle;
+	font-family: 'DM Sans';
+	font-size: 20px;
+  padding-top:25%;
+	padding-right: 20%;
+ }
+
+.container:hover .overlay {
+  opacity: 1;
+}
+.container:hover .image {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
+</style>
+</head>
+<body>
+	<h1  style='font-family: DM Sans;'><span> Wind Flow Simulation</span></h1>
+	<div class="container">
+	<img src="windrose.png" id="windrose"  class="image">
+	  <div class="overlay">
+	    <p>Each site would have different wind conditions.<br>This refers to the prevailing wind speed and wind direction. A suitable boundary condition should be selected for study.</p>
+	  </div>
+	</div>
+	<div class="container">
+	  <img src="wind.png" id="wind"  class="image">
+	  <div class="overlay">
+	  <p> OpenFOAM is a fluid dynamics library.<br>It imitates the interactions between air particles to produce wind flow patterns. </p>
+	  </div>
+	</div>
+	<div class="container">
+		<img src="NW.png" id="results"  class="image">
+		<div class="overlay">
+		<p> The results are mapped onto the air space around the 3D models.<br>This becomes tricky to visualise as the focus is not just on the building itself.<br>A good visualisation should allow users to pan and zoom.  </p>
+		</div>
+	</div>
+
+	<div class="caption">
+		<p> <b>Climate Wind Conditions</b> </p>
+	</div>
+	<div class="caption">
+		<p> <b>Fluid Dynamics Library</b> </p>
+	</div>
+	<div class="caption">
+		<p> <b>Map Results to Space</b> </p>
+	</div>
+
+</body>
+
+<script>
+</script>
+
+</html>
